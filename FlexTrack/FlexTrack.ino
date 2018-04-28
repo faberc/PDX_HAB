@@ -33,6 +33,7 @@
 
 // Power settings
 #define POWERSAVING	                      // Comment out to disable GPS power saving
+#define POWERSAVING                        // Comment out to disable GPS power saving
 
 // LORA settings
 #define LORA_PAYLOAD_ID   "OO5"            // Do not use spaces.
@@ -152,7 +153,7 @@
             "$%s,%d,%02d:%02d:%02d,%s,%s,%05.5u,%d,%d,%d",
             PAYLOAD_ID,
             SentenceCounter,
-	    GPS.Hours, GPS.Minutes, GPS.Seconds,
+      GPS.Hours, GPS.Minutes, GPS.Seconds,
             LatitudeString,
             LongitudeString,
             GPS.Altitude,
@@ -168,18 +169,18 @@
 
 struct TBinaryPacket
 {
-	uint8_t 	PayloadIDs;
-	uint16_t	Counter;
-	uint16_t	BiSeconds;
-	float		Latitude;
-	float		Longitude;
-	int32_t  	Altitude;
+  uint8_t   PayloadIDs;
+  uint16_t  Counter;
+  uint16_t  BiSeconds;
+  float   Latitude;
+  float   Longitude;
+  int32_t   Altitude;
 };  //  __attribute__ ((packed));
 
 struct TGPS
 {
   int Hours, Minutes, Seconds;
-  unsigned long SecondsInDay;					// Time in seconds since midnight
+  unsigned long SecondsInDay;         // Time in seconds since midnight
   float Longitude, Latitude;
   long Altitude;
   unsigned int Satellites;
