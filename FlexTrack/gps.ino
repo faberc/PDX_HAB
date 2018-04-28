@@ -16,7 +16,7 @@
 
 // Globals
 byte RequiredFlightMode=0;
-byte GlonassMode=0;
+byte GlonassMode=0;   // (Global Navigation Satellite System)
 byte RequiredPowerMode=-1;
 byte LastCommand1=0;
 byte LastCommand2=0;
@@ -25,7 +25,7 @@ byte HaveHadALock=0;
 char Hex(char Character)
 {
   char HexTable[] = "0123456789ABCDEF";
-	
+  
   return HexTable[Character];
 }
 

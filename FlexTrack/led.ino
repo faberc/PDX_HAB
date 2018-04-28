@@ -3,16 +3,20 @@ unsigned long NextLEDs=0;
 void SetupLEDs(void)
 {
 #ifdef LED_WARN
+
   pinMode(LED_WARN, OUTPUT);
   digitalWrite(LED_WARN, 1);
 #endif
 
 #ifdef LED_OK
+
   pinMode(LED_OK, OUTPUT);
   digitalWrite(LED_OK, 0);
+  
 #endif
 
 #ifdef LED_STATUS
+
   pinMode(LED_STATUS, OUTPUT);
   digitalWrite(LED_STATUS, 0);
 #endif
@@ -43,7 +47,7 @@ void CheckLEDs(void)
     static byte Flash=0;
     
     // This would normally be the only LED for status (i.e. no OK or WARN LEDs)
-    if (GPS.Altitude > 1000)
+    if (GPS.Altitude > 1000) // this is in meters  
     {
       // All off
       ControlLEDs(0,0,0);
