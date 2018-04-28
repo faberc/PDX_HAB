@@ -4,7 +4,7 @@ void SetupLEDs(void)
 {
 #ifdef LED_WARN
 
-  pinMode(LED_WARN, OUTPUT);
+  pinMode(LED_WARN, OUTPUT); 
   digitalWrite(LED_WARN, 1);
 #endif
 
@@ -27,7 +27,7 @@ void SetupLEDs(void)
 #endif
 }
 
-void ControlLEDs(int LEDStatus, int LEDOK, int LEDWarn)
+void ControlLEDs(int LEDStatus, int LEDOK, int LEDWarn) // this is a function that controls the LED output
 {
   #ifdef LED_STATUS
     digitalWrite(LED_STATUS, LEDStatus);
@@ -42,7 +42,7 @@ void ControlLEDs(int LEDStatus, int LEDOK, int LEDWarn)
 
 void CheckLEDs(void)
 {
-  if (millis() >= NextLEDs)
+  if (millis() >= NextLEDs)  
   {
     static byte Flash=0;
     
@@ -54,7 +54,7 @@ void CheckLEDs(void)
     }
     else if ((GPS.FixType == 3) && (GPS.Satellites >= 4))
     {
-      ControlLEDs(Flash, Flash, 0);
+      ControlLEDs(Flash, Flash, 0); // maybe this is a morse code type of communication language
     }
     else
     {

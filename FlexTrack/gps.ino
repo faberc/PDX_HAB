@@ -53,13 +53,13 @@ void SendUBX(unsigned char *Message, int Length)
   LastCommand2 = Message[3];
   
 #ifdef GPS_I2C  
-  I2c.write(0x42, 0, Message, Length);
+  I2c.write(0x42, 0, Message, Length); //
 #else
   int i;
   
   for (i=0; i<Length; i++)
   {
-    Serial.write(Message[i]);
+    Serial.write(Message[i]); // 
   }
 #endif
 }
@@ -105,7 +105,7 @@ void SetGNSSMode(void)
     0x01, 0x01, 0x03, 0x08, 0x10, 0x00, 0x00, 0x00,
     0x01, 0x01, 0x05, 0x00, 0x03, 0x00, 0x00, 0x00,
     0x01, 0x01, 0x06, 0x08, 0x0E, 0x00, 0x00, 0x00,
-    0x01, 0x01, 0xFC, 0x11};
+    0x01, 0x01, 0xFC, 0x11}; 
     SendUBX(setGNSS, sizeof(setGNSS));
 } 
 #endif
@@ -116,7 +116,7 @@ void SetGNSSMode(void)
 #ifdef POWERSAVING
 void SetPowerMode(byte SavePower)
 {
-  uint8_t setPSM[] = {0xB5, 0x62, 0x06, 0x11, 0x02, 0x00, 0x08, 0x01, 0x22, 0x92 };
+  uint8_t setPSM[] = {0xB5, 0x62, 0x06, 0x11, 0x02, 0x00, 0x08, 0x01, 0x22, 0x92 }; //PSM: saving power mode 
   
   setPSM[7] = SavePower ? 1 : 0;
   
@@ -148,7 +148,7 @@ void ProcessUBX_ACK(unsigned char *Buffer, int Length)
   LastCommand2 = 0;
 }
 
-void ProcessUBX_NAV_PVT(unsigned char *Buffer, int Length)
+void ProcessUBX_NAV_PVT(unsigned char *Buffer, int Length) //UB is unsigned binary, this processes  the ones and zeros(machine code)
 {
   struct TUBlox
   {
