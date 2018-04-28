@@ -32,7 +32,6 @@
 #define RTTY_SHIFT        425                // Only used on boards where PWM is used for RTTY.
 
 // Power settings
-#define POWERSAVING	                      // Comment out to disable GPS power saving
 #define POWERSAVING                        // Comment out to disable GPS power saving
 
 // LORA settings
